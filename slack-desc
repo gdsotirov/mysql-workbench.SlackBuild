@@ -1,0 +1,11 @@
+mysql-workbench: MySQL Workbench (A GUI for design, dev and admin for MySQL)
+mysql-workbench:
+mysql-workbench: MySQL Workbench provides DBAs and developers an integrated
+mysql-workbench: GUI environment with tools for:
+mysql-workbench:   * Database Design & Modeling
+mysql-workbench:   * SQL Development (replacing MySQL Query Browser)
+mysql-workbench:   * Database Administration (replacing MySQL Administrator)
+mysql-workbench:
+mysql-workbench: The Community (OSS) Edition is available from this page under the GPL.
+mysql-workbench:
+mysql-workbench: Packaged by Georgi D. Sotirov <gdsotirov@dir.bg>
