@@ -48,9 +48,12 @@ mysql >= 5.1
 openssl >= 0.9.8n | openssl-solibs >= 0.9.8n
 pango >= 1.26.2
 pangomm >= 2.26.2
+paramiko >= 1.7.6
 pcre >= 8.02
+pexpect >= 2.3
 pixman >= 0.16.6
 popt >= 1.7
+pycrypto >= 2.3
 python >= 2.6.4
 sqlite >= 3.6.23.1
 util-linux-ng >= 2.17.2
