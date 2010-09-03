@@ -6,6 +6,6 @@ mysql-workbench:   * Database Design & Modeling
 mysql-workbench:   * SQL Development (replacing MySQL Query Browser)
 mysql-workbench:   * Database Administration (replacing MySQL Administrator)
 mysql-workbench:
-mysql-workbench: The Community (OSS) Edition is available from this page under the GPL.
+mysql-workbench: The Community (OSS) Edition is available in this package.
 mysql-workbench:
 mysql-workbench: Packaged by Georgi D. Sotirov <gdsotirov@dir.bg>
