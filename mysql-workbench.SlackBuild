@@ -8,7 +8,7 @@
 . ../slack-package.conf
 
 NAME=mysql-workbench
-VERSION=5.2.27
+VERSION=5.2.28
 BUILD=${BUILD:-1}
 
 TMP=${TMP:-/tmp}
@@ -18,7 +18,7 @@ if [ ! -e $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-SRC=$TMP/$NAME-gpl-$VERSION
+SRC=$TMP/${NAME}-gpl-${VERSION}-src
 if [ -e $SRC -a -d $SRC ]; then
   echo "Source directory '$SRC' already exists! Plaese, move it or remove it."
   exit 1
@@ -33,7 +33,7 @@ mkdir -p $PKG
 
 # Extract the source
 cd $TMP
-tar -xvf $CWD/$NAME-gpl-$VERSION.tar.gz || exit 1
+tar -xvf $CWD/${NAME}-gpl-${VERSION}-src.tar.gz || exit 1
 cd $SRC
 rm -f depcomp install-sh missing
 ln -s /usr/share/automake-1.11/depcomp depcomp
