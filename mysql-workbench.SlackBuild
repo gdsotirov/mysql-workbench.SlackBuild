@@ -20,13 +20,13 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: mysql-workbench.SlackBuild,v 1.6 2011/03/05 14:55:16 gsotirov Exp $
+# $Id: mysql-workbench.SlackBuild,v 1.7 2011/03/13 00:27:31 gsotirov Exp $
 #
 
 . ../slack-package.conf
 
 NAME=mysql-workbench
-VERSION=5.2.32
+VERSION=5.2.33
 BUILD=${BUILD:-1}
 
 TMP=${TMP:-/tmp}
@@ -53,10 +53,6 @@ mkdir -p $PKG
 cd $TMP
 tar -xvf $CWD/${NAME}-gpl-${VERSION}-src.tar.gz || exit 1
 cd $SRC
-rm -f depcomp install-sh missing
-ln -s /usr/share/automake-1.11/depcomp depcomp
-ln -s /usr/share/automake-1.11/install-sh install-sh
-ln -s /usr/share/automake-1.11/missing missing
 fix_source
 
 # Configure
