@@ -6,6 +6,7 @@ audiofile >= 0.2.6
 avahi >= 0.6.27
 cairo >= 1.8.8
 cairomm >= 1.8.4
+ctemplate >= 1.1
 cxxlibs >= 6.0.13 | gcc-g++ >= 4.4.4
 dbus >= 1.2.24
 dbus-glib >= 0.86
