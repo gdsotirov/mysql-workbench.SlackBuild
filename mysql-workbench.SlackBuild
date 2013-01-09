@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Slackware build script for MySQL Workbench Community (OSS) Edition
-# Copyright (C) 2010-2012  Georgi D. Sotirov <gdsotirov@dir.bg>
+# Copyright (C) 2010-2013  Georgi D. Sotirov <gdsotirov@dir.bg>
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -20,13 +20,13 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: mysql-workbench.SlackBuild,v 1.12 2012/10/02 15:02:05 gsotirov Exp $
+# $Id: mysql-workbench.SlackBuild,v 1.13 2013/01/09 20:44:52 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=mysql-workbench
-VERSION=5.2.44
+VERSION=5.2.45
 BUILD=${BUILD:-1}
 
 TMP=${TMP:-/tmp}
