@@ -1,0 +1,37 @@
+# Remove hardcoded CFLAGS
+diff -urNad mysql-workbench-gpl-5.2.45-src-orig/ext/scintilla/gtk/Makefile.am mysql-workbench-gpl-5.2.45-src/ext/scintilla/gtk/Makefile.am
+--- mysql-workbench-gpl-5.2.45-src-orig/ext/scintilla/gtk/Makefile.am	2012-12-27 17:42:48.000000000 +0200
++++ mysql-workbench-gpl-5.2.45-src/ext/scintilla/gtk/Makefile.am	2013-01-09 20:35:10.000000000 +0200
+@@ -1,6 +1,6 @@
+ AUTOMAKE_OPTIONS=no-dependencies
+ 
+-AM_CXXFLAGS=-Wall -Wno-missing-braces -Wno-char-subscripts -pedantic -O0 -g3 -DGTK -DSCI_LEXER -DSCI_NAMESPACE
++AM_CXXFLAGS=-Wall -Wno-missing-braces -Wno-char-subscripts -pedantic -DGTK -DSCI_LEXER -DSCI_NAMESPACE
+ 
+ #noinst_LTLIBRARIES=libwbscintilla.la
+ pkglib_LTLIBRARIES=libwbscintilla.la
+diff -urNad mysql-workbench-gpl-5.2.45-src-orig/ext/scintilla/gtk/Makefile.in mysql-workbench-gpl-5.2.45-src/ext/scintilla/gtk/Makefile.in
+--- mysql-workbench-gpl-5.2.45-src-orig/ext/scintilla/gtk/Makefile.in	2012-12-27 17:43:08.000000000 +0200
++++ mysql-workbench-gpl-5.2.45-src/ext/scintilla/gtk/Makefile.in	2013-01-09 20:35:10.000000000 +0200
+@@ -273,7 +273,7 @@
+ top_srcdir = @top_srcdir@
+ unixodbc = @unixodbc@
+ AUTOMAKE_OPTIONS = no-dependencies
+-AM_CXXFLAGS = -Wall -Wno-missing-braces -Wno-char-subscripts -pedantic -O0 -g3 -DGTK -DSCI_LEXER -DSCI_NAMESPACE
++AM_CXXFLAGS = -Wall -Wno-missing-braces -Wno-char-subscripts -pedantic -DGTK -DSCI_LEXER -DSCI_NAMESPACE
+ 
+ #noinst_LTLIBRARIES=libwbscintilla.la
+ pkglib_LTLIBRARIES = libwbscintilla.la
+# Define absolute path for ifconfig command
+diff -urNad mysql-workbench-gpl-5.2.45-src-orig/plugins/wb.admin/backend/wb_server_control.py mysql-workbench-gpl-5.2.45-src/plugins/wb.admin/backend/wb_server_control.py
+--- mysql-workbench-gpl-5.2.45-src-orig/plugins/wb.admin/backend/wb_server_control.py	2012-12-27 17:42:54.000000000 +0200
++++ mysql-workbench-gpl-5.2.45-src/plugins/wb.admin/backend/wb_server_control.py	2013-01-09 20:35:10.000000000 +0200
+@@ -32,7 +32,7 @@
+ 
+ #-------------------------------------------------------------------------------
+ def get_local_ip_list():
+-    cmd    = "/bin/sh -c ifconfig"
++    cmd    = "/bin/sh -c /sbin/ifconfig"
+     regexp = "inet addr:([0-9a-f:\.]+)"
+ 
+     if hasattr(sys, 'getwindowsversion'):
