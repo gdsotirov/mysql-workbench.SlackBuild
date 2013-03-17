@@ -1,7 +1,7 @@
 # Remove hardcoded CFLAGS
-diff -urNad mysql-workbench-gpl-5.2.45-src-orig/ext/scintilla/gtk/Makefile.am mysql-workbench-gpl-5.2.45-src/ext/scintilla/gtk/Makefile.am
---- mysql-workbench-gpl-5.2.45-src-orig/ext/scintilla/gtk/Makefile.am	2012-12-27 17:42:48.000000000 +0200
-+++ mysql-workbench-gpl-5.2.45-src/ext/scintilla/gtk/Makefile.am	2013-01-09 20:35:10.000000000 +0200
+diff -urNad mysql-workbench-gpl-5.2.47-src-orig/ext/scintilla/gtk/Makefile.am mysql-workbench-gpl-5.2.47-src/ext/scintilla/gtk/Makefile.am
+--- mysql-workbench-gpl-5.2.47-src-orig/ext/scintilla/gtk/Makefile.am	2013-02-14 22:54:03.000000000 +0200
++++ mysql-workbench-gpl-5.2.47-src/ext/scintilla/gtk/Makefile.am	2013-03-17 16:52:38.000000000 +0200
 @@ -1,6 +1,6 @@
  AUTOMAKE_OPTIONS=no-dependencies
  
@@ -10,9 +10,9 @@ diff -urNad mysql-workbench-gpl-5.2.45-src-orig/ext/scintilla/gtk/Makefile.am my
  
  #noinst_LTLIBRARIES=libwbscintilla.la
  pkglib_LTLIBRARIES=libwbscintilla.la
-diff -urNad mysql-workbench-gpl-5.2.45-src-orig/ext/scintilla/gtk/Makefile.in mysql-workbench-gpl-5.2.45-src/ext/scintilla/gtk/Makefile.in
---- mysql-workbench-gpl-5.2.45-src-orig/ext/scintilla/gtk/Makefile.in	2012-12-27 17:43:08.000000000 +0200
-+++ mysql-workbench-gpl-5.2.45-src/ext/scintilla/gtk/Makefile.in	2013-01-09 20:35:10.000000000 +0200
+diff -urNad mysql-workbench-gpl-5.2.47-src-orig/ext/scintilla/gtk/Makefile.in mysql-workbench-gpl-5.2.47-src/ext/scintilla/gtk/Makefile.in
+--- mysql-workbench-gpl-5.2.47-src-orig/ext/scintilla/gtk/Makefile.in	2013-02-14 22:54:21.000000000 +0200
++++ mysql-workbench-gpl-5.2.47-src/ext/scintilla/gtk/Makefile.in	2013-03-17 16:52:38.000000000 +0200
 @@ -273,7 +273,7 @@
  top_srcdir = @top_srcdir@
  unixodbc = @unixodbc@
@@ -23,9 +23,9 @@ diff -urNad mysql-workbench-gpl-5.2.45-src-orig/ext/scintilla/gtk/Makefile.in my
  #noinst_LTLIBRARIES=libwbscintilla.la
  pkglib_LTLIBRARIES = libwbscintilla.la
 # Define absolute path for ifconfig command
-diff -urNad mysql-workbench-gpl-5.2.45-src-orig/plugins/wb.admin/backend/wb_server_control.py mysql-workbench-gpl-5.2.45-src/plugins/wb.admin/backend/wb_server_control.py
---- mysql-workbench-gpl-5.2.45-src-orig/plugins/wb.admin/backend/wb_server_control.py	2012-12-27 17:42:54.000000000 +0200
-+++ mysql-workbench-gpl-5.2.45-src/plugins/wb.admin/backend/wb_server_control.py	2013-01-09 20:35:10.000000000 +0200
+diff -urNad mysql-workbench-gpl-5.2.47-src-orig/plugins/wb.admin/backend/wb_server_control.py mysql-workbench-gpl-5.2.47-src/plugins/wb.admin/backend/wb_server_control.py
+--- mysql-workbench-gpl-5.2.47-src-orig/plugins/wb.admin/backend/wb_server_control.py	2013-02-14 22:54:06.000000000 +0200
++++ mysql-workbench-gpl-5.2.47-src/plugins/wb.admin/backend/wb_server_control.py	2013-03-17 16:52:38.000000000 +0200
 @@ -32,7 +32,7 @@
  
  #-------------------------------------------------------------------------------
