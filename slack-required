@@ -22,7 +22,6 @@ gdk-pixbuf2 >= 2.24.1
 glib2 >= 2.30.2
 glibc-solibs >= 2.13
 glibmm >= 2.30.0
-gnome-vfs >= 2.24.4
 gtk+2 >= 2.24.4
 gtkmm >= 2.20.3
 libX11 >= 1.4.3
