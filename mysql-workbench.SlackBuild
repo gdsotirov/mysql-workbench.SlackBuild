@@ -20,7 +20,7 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: mysql-workbench.SlackBuild,v 1.15 2015/04/25 16:34:20 gsotirov Exp $
+# $Id: mysql-workbench.SlackBuild,v 1.16 2015/04/26 06:07:33 gsotirov Exp $
 #
 
 . ../../slack-package.conf
@@ -36,7 +36,7 @@ if [ ! -e $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-SRC=$TMP/${NAME}-community-${VERSION}-nodocs-src
+SRC=$TMP/${NAME}-community-${VERSION}-src
 if [ -e $SRC -a -d $SRC ]; then
   echo "Source directory '$SRC' already exists! Plaese, move it or remove it."
   exit 1
@@ -51,7 +51,7 @@ mkdir -p $PKG
 
 # Extract the source
 cd $TMP
-tar -xvf $CWD/${NAME}-community-${VERSION}-nodocs-src.tar.gz || exit 3
+tar -xvf $CWD/${NAME}-community-${VERSION}-src.tar.gz || exit 3
 cd $SRC
 fix_source
 
