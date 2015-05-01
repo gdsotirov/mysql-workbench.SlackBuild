@@ -20,13 +20,13 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: mysql-workbench.SlackBuild,v 1.16 2015/04/26 06:07:33 gsotirov Exp $
+# $Id: mysql-workbench.SlackBuild,v 1.17 2015/05/01 18:39:46 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=mysql-workbench
-VERSION=6.0.9
+VERSION=6.1.7
 BUILD=${BUILD:-1}
 
 TMP=${TMP:-/tmp}
@@ -60,7 +60,7 @@ rm -rf ext/ctemplate || exit 4
 mkdir -p ext/ctemplate/ctemplate-src || exit 4
 
 # Apply patches
-#patch -p1 < $CWD/$NAME-$VERSION.diff || exit 5
+patch -b -z .orig -p1 < $CWD/$NAME-${VERSION}.diff || exit 5
 
 # Configure
 cmake \
@@ -70,6 +70,7 @@ cmake \
     -DLIB_INSTALL_DIR=/usr/lib$LIBDIRSUFFIX \
     -DPYTHON_INCLUDE_DIR:PATH=/usr/include/python2.7 \
     -DPYTHON_LIBRARY:FILEPATH=/usr/lib$LIBDIRSUFFIX/libpython2.7.so \
+    -DGDAL_INCLUDE_DIR=/usr/include \
     -DCMAKE_BUILD_TYPE=Release || exit 5
 
 # Build and install
@@ -92,7 +93,7 @@ SBDIR=$PKG/usr/src/slackbuilds/$NAME-$VERSION
 install -m 755 -d $SBDIR
 install -m 644 $CWD/slack-desc          $SBDIR/slack-desc
 install -m 644 $CWD/slack-required      $SBDIR/slack-required
-#install -m 644 $CWD/$NAME-$VERSION.diff $SBDIR/$NAME-$VERSION.diff
+install -m 644 $CWD/$NAME-$VERSION.diff $SBDIR/$NAME-$VERSION.diff
 install -m 644 $CWD/$NAME.SlackBuild    $SBDIR/$NAME.SlackBuild
 
 # Create package
