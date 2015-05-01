@@ -1,0 +1,32 @@
+# Path to detect TinyXML2
+# Copyright (C) 2015 Georgi D. Sotirov <gdsotirov@dir.bg>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+#
+diff -urNad mysql-workbench-community-6.1.7-src-orig/build/cmake/Modules/FindTinyXML.cmake mysql-workbench-community-6.1.7-src/build/cmake/Modules/FindTinyXML.cmake
+--- mysql-workbench-community-6.1.7-src-orig/build/cmake/Modules/FindTinyXML.cmake	2014-06-20 22:18:09.000000000 +0300
++++ mysql-workbench-community-6.1.7-src/build/cmake/Modules/FindTinyXML.cmake	2015-05-01 12:12:23.585574168 +0300
+@@ -28,9 +28,9 @@
+   SET(TINYXML_FIND_QUIETLY TRUE)
+ ENDIF (TINYXML_INCLUDE_DIRS)
+ 
+-FIND_PATH(TINYXML_INCLUDE_DIR tinyxml.h)
++FIND_PATH(TINYXML_INCLUDE_DIR tinyxml2.h)
+ 
+-SET(TINYXML_NAMES tinyxml)
++SET(TINYXML_NAMES tinyxml2)
+ FIND_LIBRARY(TINYXML_LIBRARY NAMES ${TINYXML_NAMES} )
+ 
+ # handle the QUIETLY and REQUIRED arguments and set TINYXML_FOUND to TRUE if 
