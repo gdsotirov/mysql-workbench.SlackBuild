@@ -68,7 +68,7 @@ openldap-client >= 2.4.31
 openssl >= 1.0.1k | openssl-solibs >= 1.0.1k
 pango >= 1.34.1
 pangomm >= 2.34.0
-paramikko >= 1.15.2
+paramiko >= 1.15.2
 pcre >= 8.33
 pexpect >= 3.0
 pixman >= 0.30.2
