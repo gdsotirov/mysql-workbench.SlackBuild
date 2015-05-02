@@ -20,13 +20,13 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: mysql-workbench.SlackBuild,v 1.17 2015/05/01 18:39:46 gsotirov Exp $
+# $Id: mysql-workbench.SlackBuild,v 1.18 2015/05/02 11:11:45 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=mysql-workbench
-VERSION=6.1.7
+VERSION=6.2.5
 BUILD=${BUILD:-1}
 
 TMP=${TMP:-/tmp}
@@ -55,14 +55,8 @@ tar -xvf $CWD/${NAME}-community-${VERSION}-src.tar.gz || exit 3
 cd $SRC
 fix_source
 
-# Ensure usage of system's ctemplate instead of bundled one
-rm -rf ext/ctemplate || exit 4
-mkdir -p ext/ctemplate/ctemplate-src || exit 4
-
-# Apply patches
-patch -b -z .orig -p1 < $CWD/$NAME-${VERSION}.diff || exit 5
-
 # Configure
+ANTLR_JAR_PATH=/usr/lib/antlr-3.4-complete.jar \
 cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
@@ -74,7 +68,7 @@ cmake \
     -DCMAKE_BUILD_TYPE=Release || exit 5
 
 # Build and install
-make -j 4 || exit 8
+make VERBOSE=1 -j 4 || exit 8
 make DESTDIR=$PKG install || exit 9
 
 # Prepare package
@@ -93,7 +87,6 @@ SBDIR=$PKG/usr/src/slackbuilds/$NAME-$VERSION
 install -m 755 -d $SBDIR
 install -m 644 $CWD/slack-desc          $SBDIR/slack-desc
 install -m 644 $CWD/slack-required      $SBDIR/slack-required
-install -m 644 $CWD/$NAME-$VERSION.diff $SBDIR/$NAME-$VERSION.diff
 install -m 644 $CWD/$NAME.SlackBuild    $SBDIR/$NAME.SlackBuild
 
 # Create package
