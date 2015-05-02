@@ -20,7 +20,7 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: mysql-workbench.SlackBuild,v 1.18 2015/05/02 11:11:45 gsotirov Exp $
+# $Id: mysql-workbench.SlackBuild,v 1.19 2015/05/02 11:18:58 gsotirov Exp $
 #
 
 . ../../slack-package.conf
@@ -56,7 +56,7 @@ cd $SRC
 fix_source
 
 # Configure
-ANTLR_JAR_PATH=/usr/lib/antlr-3.4-complete.jar \
+ANTLR_JAR_PATH=/usr/lib$LIBDIRSUFFIX/antlr-3.4-complete.jar \
 cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
