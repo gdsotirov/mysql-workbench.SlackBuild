@@ -1,4 +1,5 @@
 # Patch for 6.3.9 to correct compilation errors in library/base/jsonparser.cpp
+# and library/forms/jsonview.cpp
 # Copyright (C) 2017 Georgi D. Sotirov <gdsotirov@dir.bg>
 #
 # This program is free software; you can redistribute it and/or
@@ -15,7 +16,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
-# $Id: mysql-workbench-6.3.9.diff,v 1.1 2017/02/10 08:59:13 gsotirov Exp $
+# $Id: mysql-workbench-6.3.9.diff,v 1.2 2017/02/10 10:47:59 gsotirov Exp $
 #
 diff -urNad mysql-workbench-community-6.3.9-src-orig/library/base/jsonparser.cpp mysql-workbench-community-6.3.9-src/library/base/jsonparser.cpp
 --- mysql-workbench-community-6.3.9-src-orig/library/base/jsonparser.cpp	2017-02-03 20:40:18.000000000 +0200
@@ -51,3 +52,55 @@ diff -urNad mysql-workbench-community-6.3.9-src-orig/library/base/jsonparser.cpp
          break;
        case VObject:
          write((JsonObject)value);
+diff -urNad mysql-workbench-community-6.3.9-src-orig/library/forms/jsonview.cpp mysql-workbench-community-6.3.9-src/library/forms/jsonview.cpp
+--- mysql-workbench-community-6.3.9-src-orig/library/forms/jsonview.cpp	2017-02-03 20:40:18.000000000 +0200
++++ mysql-workbench-community-6.3.9-src/library/forms/jsonview.cpp	2017-02-10 12:11:35.705698768 +0200
+@@ -651,8 +651,8 @@
+   if (data != nullptr) {
+     std::stringstream buffer;
+     double number = 0;
+-    int64_t number2 = 0;
+-    uint64_t number3 = 0;
++    ssize_t number2 = 0;
++    size_t number3 = 0;
+     bool retBool = false;
+     auto &storedValue = data->getData();
+     switch (storedValue.getType()) {
+@@ -1074,11 +1074,11 @@
+       node->set_string(2, "Double");
+       break;
+     case VInt64:
+-      node->set_string(1, std::to_string((int64_t)value));
++      node->set_string(1, std::to_string((ssize_t)value));
+       node->set_string(2, "Long Integer");
+       break;
+     case VUint64:
+-      node->set_string(1, std::to_string((uint64_t)value));
++      node->set_string(1, std::to_string((size_t)value));
+       node->set_string(2, "Unsigned Long Integer");
+       break;
+     default:
+@@ -1322,8 +1322,8 @@
+   if (data != NULL) {
+     std::stringstream buffer;
+     double number = 0;
+-    int64_t number2 = 0;
+-    uint64_t number3 = 0;
++    ssize_t number2 = 0;
++    size_t number3 = 0;
+     bool retBool = false;
+     switch (storedValue.getType()) {
+       case VDouble:
+@@ -1612,10 +1612,10 @@
+       node->set_float(columnId, (double)value);
+       break;
+     case VInt64:
+-      node->set_long(columnId, (int64_t)value);
++      node->set_long(columnId, (ssize_t)value);
+       break;
+     case VUint64:
+-      node->set_long(columnId, (uint64_t)value);
++      node->set_long(columnId, (size_t)value);
+       break;
+     default:
+       break;
