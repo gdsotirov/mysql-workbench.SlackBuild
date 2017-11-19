@@ -1,5 +1,12 @@
-# Patch for 6.3.10 to correct compilation errors in library/base/jsonparser.cpp
-# and library/forms/jsonview.cpp
+# Patch for 6.3.10 to correct compilation errors in:
+# * library/base/jsonparser.cpp - format %zu instead of %lu, use ssize_t and
+#   size_t instead of int64_t and uint64_t
+# * library/forms/jsonview.cpp - use ssize_t and size_t instead of int64_t
+#   and uint64_t
+# * backend/wbpublic/grt/spatial_handler.cpp - use new CPLFree instead of
+#   deprecated OGRFree
+# * backend/wbpublic/objimpl/db.query/db_query_Resultset.cpp - use new CPLFree
+#   instead of deprecated OGRFree
 # Copyright (C) 2017 Georgi D. Sotirov <gdsotirov@dir.bg>
 #
 # This program is free software; you can redistribute it and/or
@@ -16,11 +23,55 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
-# $Id: mysql-workbench-6.3.10.diff,v 1.1 2017/11/19 07:39:38 gsotirov Exp $
+# $Id: mysql-workbench-6.3.10.diff,v 1.2 2017/11/19 08:23:38 gsotirov Exp $
 #
+diff -urNad mysql-workbench-community-6.3.10-src-orig/backend/wbpublic/grt/spatial_handler.cpp mysql-workbench-community-6.3.10-src/backend/wbpublic/grt/spatial_handler.cpp
+--- mysql-workbench-community-6.3.10-src-orig/backend/wbpublic/grt/spatial_handler.cpp	2017-11-09 18:11:42.000000000 +0200
++++ mysql-workbench-community-6.3.10-src/backend/wbpublic/grt/spatial_handler.cpp	2017-11-19 09:58:35.274999545 +0200
+@@ -443,7 +443,7 @@
+ 
+ spatial::Importer::~Importer() {
+   if (_geometry != NULL)
+-    OGRFree(_geometry);
++    CPLFree(_geometry);
+ }
+ 
+ OGRGeometry *spatial::Importer::steal_data() {
+@@ -495,7 +495,7 @@
+       logError("Error exporting data to WKT (%i)\n", err);
+     } else {
+       std::string tmp(data);
+-      OGRFree(data);
++      CPLFree(data);
+       return tmp;
+     }
+   }
+diff -urNad mysql-workbench-community-6.3.10-src-orig/backend/wbpublic/objimpl/db.query/db_query_Resultset.cpp mysql-workbench-community-6.3.10-src/backend/wbpublic/objimpl/db.query/db_query_Resultset.cpp
+--- mysql-workbench-community-6.3.10-src-orig/backend/wbpublic/objimpl/db.query/db_query_Resultset.cpp	2017-11-09 18:11:42.000000000 +0200
++++ mysql-workbench-community-6.3.10-src/backend/wbpublic/objimpl/db.query/db_query_Resultset.cpp	2017-11-19 10:07:35.736999481 +0200
+@@ -47,7 +47,7 @@
+     OGRGeometryFactory::createFromWkb((unsigned char *)const_cast<char *>(&(*((*data).begin() + 4))), NULL, &geometry);
+   if (ret_val != OGRERR_NONE) {
+     if (geometry)
+-      OGRFree(geometry);
++      CPLFree(geometry);
+     throw std::exception();
+   }
+ 
+@@ -61,8 +61,8 @@
+ 
+     if (err == OGRERR_NONE && data != NULL) {
+       grt::StringRef tmp(data);
+-      OGRFree(data);
+-      OGRFree(geometry);
++      CPLFree(data);
++      CPLFree(geometry);
+       return tmp;
+     } else
+       throw std::runtime_error("Conversion of OGR geometry data failed");
 diff -urNad mysql-workbench-community-6.3.10-src-orig/library/base/jsonparser.cpp mysql-workbench-community-6.3.10-src/library/base/jsonparser.cpp
 --- mysql-workbench-community-6.3.10-src-orig/library/base/jsonparser.cpp	2017-11-09 18:11:42.000000000 +0200
-+++ mysql-workbench-community-6.3.10-src/library/base/jsonparser.cpp	2017-11-19 09:28:16.756179762 +0200
++++ mysql-workbench-community-6.3.10-src/library/base/jsonparser.cpp	2017-11-19 10:13:48.914556955 +0200
 @@ -343,7 +343,7 @@
     */
    JsonValue &JsonArray::at(SizeType pos) {
@@ -54,7 +105,7 @@ diff -urNad mysql-workbench-community-6.3.10-src-orig/library/base/jsonparser.cp
          write((JsonObject)value);
 diff -urNad mysql-workbench-community-6.3.10-src-orig/library/forms/jsonview.cpp mysql-workbench-community-6.3.10-src/library/forms/jsonview.cpp
 --- mysql-workbench-community-6.3.10-src-orig/library/forms/jsonview.cpp	2017-11-09 18:11:42.000000000 +0200
-+++ mysql-workbench-community-6.3.10-src/library/forms/jsonview.cpp	2017-11-19 09:28:16.859171076 +0200
++++ mysql-workbench-community-6.3.10-src/library/forms/jsonview.cpp	2017-11-19 10:13:48.986550876 +0200
 @@ -651,8 +651,8 @@
    if (data != nullptr) {
      std::stringstream buffer;
