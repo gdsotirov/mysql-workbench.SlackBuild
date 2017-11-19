@@ -20,13 +20,13 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: mysql-workbench.SlackBuild,v 1.24 2017/02/10 09:45:12 gsotirov Exp $
+# $Id: mysql-workbench.SlackBuild,v 1.25 2017/11/19 07:39:51 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=mysql-workbench
-VERSION=6.3.9
+VERSION=6.3.10
 ARCH=${ARCH:-i586}
 BUILD=${BUILD:-1}
 
