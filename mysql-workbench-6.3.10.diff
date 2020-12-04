@@ -7,7 +7,7 @@
 #   deprecated OGRFree
 # * backend/wbpublic/objimpl/db.query/db_query_Resultset.cpp - use new CPLFree
 #   instead of deprecated OGRFree
-# Copyright (C) 2017 Georgi D. Sotirov <gdsotirov@dir.bg>
+# Copyright (C) 2017 Georgi D. Sotirov <gdsotirov@gmail.com>
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -18,12 +18,12 @@
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
-# $Id: mysql-workbench-6.3.10.diff,v 1.2 2017/11/19 08:23:38 gsotirov Exp $
+# Visit SlackPack at https://sotirov-bg.net/slackpack/
 #
 diff -urNad mysql-workbench-community-6.3.10-src-orig/backend/wbpublic/grt/spatial_handler.cpp mysql-workbench-community-6.3.10-src/backend/wbpublic/grt/spatial_handler.cpp
 --- mysql-workbench-community-6.3.10-src-orig/backend/wbpublic/grt/spatial_handler.cpp	2017-11-09 18:11:42.000000000 +0200

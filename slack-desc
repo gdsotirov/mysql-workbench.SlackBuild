@@ -8,4 +8,4 @@ mysql-workbench:   * Database Administration (replacing MySQL Administrator)
 mysql-workbench:
 mysql-workbench: The Community (OSS) Edition is available in this package.
 mysql-workbench:
-mysql-workbench: Packaged by Georgi D. Sotirov <gdsotirov@dir.bg>
+mysql-workbench: Packaged by Georgi D. Sotirov <gdsotirov@gmail.com>
